@@ -1,1 +1,61 @@
-/* You can add global styles to this file, and also import other style files */
+/* --- PALETA DE CORES DA LOJA --- */
+:root {
+  /* Rosas (Identidade Principal) */
+  --cor-primaria: #FF007F;   /* Rosa Choque */
+  --cor-secundaria: #D5237C; /* Rosa Escuro (Hover) */
+  
+  /* Verdes (Ação/Whatsapp) */
+  --cor-destaque: #29CC29;   /* Verde WhatsApp */
+  --cor-sucesso-hover: #3D993D;
+
+  /* Neutros */
+  --cor-fundo: #fff0f5;      /* Um rosa bem clarinho (LavenderBlush) para fundo suave */
+  --cor-texto: #4a4a4a;
+  --cor-texto-claro: #ffffff;
+  
+  --fonte-principal: "Nunito", sans-serif; /* Certifique-se de importar essa fonte no index.html */
+}
+
+/* Reset básico e configurações globais */
+body {
+  font-family: var(--fonte-principal);
+  color: var(--cor-texto);
+  background-color: var(--cor-fundo);
+  overflow-x: hidden;
+  /* Espaço para o header fixo não cobrir o conteúdo */
+  padding-top: 125px; 
+}
+
+/* Links e Utilitários */
+a { text-decoration: none; }
+
+.text-primary { color: var(--cor-primaria) !important; }
+
+/* --- BOTÕES (Estilo do seu projeto anterior) --- */
+.btn-primary {
+  background-color: var(--cor-primaria);
+  border-color: var(--cor-primaria);
+  color: var(--cor-texto-claro);
+  font-weight: 600;
+  transition: all 0.2s ease-in-out;
+
+  &:hover {
+    background-color: var(--cor-secundaria);
+    border-color: var(--cor-secundaria);
+    color: var(--cor-texto-claro);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  }
+}
+
+.btn-outline-danger {
+  border: 1px solid #dc3545;
+  color: #dc3545;
+  font-weight: 700;
+  transition: all 0.2s ease;
+
+  &:hover {
+    background-color: #dc3545;
+    color: white;
+  }
+}

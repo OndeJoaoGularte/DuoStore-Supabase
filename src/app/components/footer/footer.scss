@@ -1,0 +1,104 @@
+footer {
+  background-color: #fff;
+  color: var(--cor-texto);
+  border-top: 1px solid var(--cor-primaria);
+}
+
+/* Footer Principal */
+.main-footer {
+  padding: 5rem 0;
+}
+
+.footer-logo {
+  max-height: 50px;
+}
+
+.widget-title {
+  font-weight: 700;
+  color: var(--cor-primaria); /* Rosa */
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.footer-links {
+  a {
+    color: var(--cor-texto);
+    text-decoration: none;
+    opacity: 0.7;
+    transition: all 0.3s ease;
+    cursor: pointer;
+
+    &:hover {
+      opacity: 1;
+      color: var(--cor-secundaria); /* Rosa Escuro */
+      padding-left: 5px;
+    }
+  }
+}
+
+.footer-contact {
+  font-size: 0.9rem;
+  color: var(--cor-texto);
+
+  span, a {
+    opacity: 0.7;
+    transition: all 0.3s ease;
+
+    &:hover {
+      opacity: 1;
+      color: var(--cor-secundaria);
+    }
+  }
+
+  i {
+    color: var(--cor-primaria);
+    width: 20px;
+  }
+}
+
+.social-icons a {
+  color: var(--cor-primaria);
+  opacity: 0.7;
+  font-size: 1.75rem;
+  transition: all 0.3s ease;
+
+  &:hover {
+    color: var(--cor-secundaria);
+    transform: translateY(-3px);
+    opacity: 1;
+  }
+}
+
+/* Footer Inferior */
+.footer-bottom {
+  background-color: var(--cor-primaria); /* Rosa Fundo */
+
+  p,
+  a {
+    font-size: 0.9rem;
+    color: #fff; /* Texto Branco */
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+
+  a:hover {
+    color: var(--cor-destaque); /* Verde no Hover (link desenvolvedor) */
+  }
+}
+
+/* Responsividade */
+@media (max-width: 991px) {
+  .main-footer {
+    padding: 2rem 0;
+  }
+
+  .footer-about, .footer-widget {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+  
+  .footer-widget h5 {
+    margin-bottom: 1rem;
+  }
+}

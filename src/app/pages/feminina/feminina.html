@@ -1,0 +1,85 @@
+<div class="container mt-4 pb-5">
+
+    <div class="component-header">
+        <h1>Coleção Feminina</h1>
+
+        @if (authService.isLoggedIn()) {
+        <a routerLink="/admin" class="btn btn-success btn-add shadow-sm">
+            <i class="fas fa-plus"></i> Gerenciar Produtos
+        </a>
+        }
+    </div>
+
+    <div class="controls-panel card p-3 mb-4 shadow-sm border-0">
+        <div class="row align-items-center">
+
+            <div class="col-md-5 mb-3 mb-md-0">
+                <label for="ordination" class="form-label fw-bold text-muted small text-uppercase">Ordenar por:</label>
+
+                <select id="ordination" class="form-select border-0 bg-light" [(ngModel)]="currentSort"
+                    (change)="loadProducts()">
+
+                    <option value="new-desc">✨ Mais Recentes</option>
+                    <option value="new-asc">📅 Mais Antigos</option>
+
+                    <option value="price-asc">💲 Preço: Menor para Maior</option>
+                    <option value="price-desc">💲 Preço: Maior para Menor</option>
+
+                    <option value="name-asc">🔤 Nome (A-Z)</option>
+                    <option value="name-desc">🔤 Nome (Z-A)</option>
+
+                </select>
+            </div>
+
+            <div class="col-md-7">
+                <label class="form-label fw-bold text-muted small text-uppercase">Busca Rápida:</label>
+                <div class="search-wrapper position-relative">
+                    <i class="fas fa-search search-icon"></i>
+                    <input type="text" class="form-control border-0 bg-light"
+                        placeholder="Pesquisar nome ou tipo de produto" #searchInput
+                        (input)="onSearchInput(searchInput.value)" [value]="searchTerm">
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    @if (loading) {
+    <div class="row g-3">
+        @for (item of [1, 2, 3, 4]; track item) {
+        <div class="col-6 col-md-4 col-lg-3 loading">
+            <div class="card h-100 shadow-sm border-0">
+                <div class="skeleton skeleton-image ratio ratio-1x1"></div>
+                <div class="card-body">
+                    <div class="skeleton skeleton-title"></div>
+                    <div class="skeleton skeleton-text"></div>
+                    <div class="skeleton skeleton-text short"></div>
+                </div>
+            </div>
+        </div>
+        }
+    </div>
+    }
+
+    @else {
+    <div class="row g-3">
+
+        @for (product of products; track product.id) {
+        <div class="col-6 col-md-4 col-lg-3">
+            <app-product-card [product]="product"></app-product-card>
+        </div>
+        }
+
+        @empty {
+        <div class="col-12 text-center py-5">
+            <div class="mb-3 text-muted opacity-50" style="font-size: 4rem;">
+                <i class="fas fa-search"></i>
+            </div>
+            <h4 class="text-muted fw-bold">Nenhum produto encontrado</h4>
+            <p class="text-muted">Tente ajustar seus filtros ou buscar por outra coisa.</p>
+        </div>
+        }
+
+    </div>
+    }
+</div>
