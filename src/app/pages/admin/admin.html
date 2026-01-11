@@ -1,1 +1,76 @@
-<p>admin works!</p>
+<div class="container py-5">
+    
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <div>
+            <h2 class="fw-bold text-secondary">Painel Administrativo</h2>
+            <p class="text-muted mb-0">Gerencie o estoque da sua loja.</p>
+        </div>
+        <a routerLink="/admin/new" class="btn btn-success shadow-sm">
+            <i class="fas fa-plus me-2"></i> Novo Produto
+        </a>
+    </div>
+
+    <div class="card shadow-sm border-0 overflow-hidden">
+        <div class="table-responsive">
+            <table class="table table-hover align-middle mb-0">
+                <thead class="bg-light">
+                    <tr>
+                        <th scope="col" class="ps-4">Produto</th>
+                        <th scope="col">Categoria</th>
+                        <th scope="col">Preço</th>
+                        <th scope="col" class="text-end pe-4">Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @if (loading) {
+                        <tr>
+                            <td colspan="4" class="text-center py-5">
+                                <div class="spinner-border text-primary" role="status"></div>
+                            </td>
+                        </tr>
+                    } @else if (products.length === 0) {
+                        <tr>
+                            <td colspan="4" class="text-center py-5 text-muted">
+                                Nenhum produto cadastrado ainda.
+                            </td>
+                        </tr>
+                    } @else {
+                        @for (product of products; track product.id) {
+                            <tr>
+                                <td class="ps-4">
+                                    <div class="d-flex align-items-center gap-3">
+                                        <img [src]="product.image_url || 'assets/placeholder.png'" 
+                                             class="rounded object-fit-cover border" 
+                                             width="50" height="50">
+                                        <div>
+                                            <div class="fw-bold text-dark">{{ product.name }}</div>
+                                            <small class="text-muted">{{ product.type }}</small>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <span class="badge" 
+                                        [class.bg-pink]="product.category === 'feminina'"
+                                        [class.bg-dark]="product.category === 'masculina'">
+                                        {{ product.category | titlecase }}
+                                    </span>
+                                </td>
+                                <td class="fw-bold text-primary">
+                                    {{ product.price | currency:'BRL' }}
+                                </td>
+                                <td class="text-end pe-4">
+                                    <a [routerLink]="['/admin/edit', product.id]" class="btn btn-sm btn-outline-primary me-2" title="Editar">
+                                        <i class="fas fa-pencil-alt"></i>
+                                    </a>
+                                    <button (click)="deleteProduct(product.id)" class="btn btn-sm btn-outline-danger" title="Excluir">
+                                        <i class="fas fa-trash"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                        }
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

@@ -98,4 +98,63 @@ export class Catalog {
     }
     return data as Product;
   }
+
+  // Adicione dentro da classe CatalogService:
+
+  // 1. Buscar tudo (sem filtro) para o admin
+  async getAllProductsForAdmin() {
+    const { data, error } = await this.supabase.client
+      .from('products')
+      .select('*')
+      .order('created_at', { ascending: false });
+    return { data, error };
+  }
+
+  // 2. Deletar produto
+  async deleteProduct(id: number) {
+    const { error } = await this.supabase.client.from('products').delete().eq('id', id);
+    return { error };
+  }
+
+  // --- MÉTODOS DE ESCRITA (ADMIN) ---
+
+  // 1. Criar novo produto
+  async createProduct(product: Partial<Product>) {
+    // Remove o ID se vier (o banco gera automático)
+    const { id, ...data } = product;
+    return await this.supabase.client.from('products').insert(data);
+  }
+
+  // 2. Atualizar produto existente
+  async updateProduct(id: number, product: Partial<Product>) {
+    return await this.supabase.client.from('products').update(product).eq('id', id);
+  }
+
+  // 3. Upload de Imagem (A parte mágica)
+  async uploadImage(file: File): Promise<string | null> {
+    try {
+      // Gera um nome único: timestamp + extensão (ex: 123456789.png)
+      const fileExt = file.name.split('.').pop();
+      const fileName = `${Date.now()}.${fileExt}`;
+      const filePath = `${fileName}`;
+
+      // Faz o upload
+      const { error: uploadError } = await this.supabase.client.storage
+        .from('product-images')
+        .upload(filePath, file);
+
+      if (uploadError) {
+        console.error('Erro upload:', uploadError);
+        return null;
+      }
+
+      // Pega a URL pública para salvar no banco
+      const { data } = this.supabase.client.storage.from('product-images').getPublicUrl(filePath);
+
+      return data.publicUrl;
+    } catch (error) {
+      console.error('Erro geral upload:', error);
+      return null;
+    }
+  }
 }

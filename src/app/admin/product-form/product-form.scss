@@ -1,0 +1,21 @@
+.image-upload-container {
+    transition: all 0.3s ease;
+    border: 2px dashed #dee2e6 !important;
+    
+    &:hover {
+        border-color: var(--cor-primaria) !important;
+        background-color: rgba(var(--cor-primaria-rgb), 0.05) !important;
+    }
+}
+
+.object-fit-cover {
+    object-fit: cover;
+}
+
+/* Ajuste no formulário */
+.form-control, .form-select {
+    &:focus {
+        border-color: var(--cor-primaria);
+        box-shadow: 0 0 0 0.25rem rgba(255, 0, 127, 0.25);
+    }
+}

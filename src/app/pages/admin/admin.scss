@@ -1,0 +1,22 @@
+.table {
+    th {
+        font-weight: 600;
+        text-transform: uppercase;
+        font-size: 0.8rem;
+        letter-spacing: 0.5px;
+        color: #6c757d;
+    }
+}
+
+.bg-pink {
+    background-color: var(--cor-primaria) !important;
+    color: white;
+}
+
+/* Hover na linha da tabela */
+tbody tr {
+    transition: background-color 0.2s;
+    &:hover {
+        background-color: rgba(var(--cor-primaria-rgb), 0.05); /* Se não tiver RGB, use #fff0f5 */
+    }
+}

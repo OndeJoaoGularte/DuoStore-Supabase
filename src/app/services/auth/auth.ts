@@ -8,7 +8,6 @@ import { Supabase } from '../supabase/supabase';
   providedIn: 'root',
 })
 export class Auth {
-
   private currentUser = new BehaviorSubject<User | null>(null); // Estado inicial
   public currentUser$: Observable<User | null> = this.currentUser.asObservable();
 
