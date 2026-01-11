@@ -1,39 +1,19 @@
 .login-container {
-  /* Altura total menos o tamanho aproximado do header + topbar */
   min-height: calc(100vh - 85px); 
-  
-  /* Gradiente Rosa da sua identidade visual */
   background-image: linear-gradient(
     to bottom right,
     var(--cor-primaria),
     var(--cor-secundaria)
   );
-  
-  /* Um padding extra para garantir que não cole nas bordas em telas pequenas */
-  padding: 2rem;
 }
 
 .card {
   width: 100%;
   max-width: 450px;
-  border-radius: 16px; /* Borda um pouco mais arredondada */
-  background-color: rgba(255, 255, 255, 0.95); /* Leve transparência */
-  backdrop-filter: blur(10px); /* Efeito de vidro */
+  border-radius: 12px;
 }
 
 .login-logo {
   height: 80px;
-  object-fit: contain;
-  margin-bottom: 0.5rem;
-}
-
-/* Ajustes finos nos inputs para ficarem mais "elegantes" */
-.form-control {
-    background-color: #f8f9fa;
-    border: 1px solid #e9ecef;
-    &:focus {
-        background-color: #fff;
-        border-color: var(--cor-primaria);
-        box-shadow: 0 0 0 0.25rem rgba(255, 0, 127, 0.25); /* Sombra rosa suave */
-    }
+  margin-bottom: 1rem;
 }

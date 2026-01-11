@@ -41,7 +41,7 @@ body {
 
 /* Garante que o Header e Botões mudem de cor suavemente também */
 header, .top-bar, .btn-primary, .footer-bottom {
-  transition: background-color var(--transicao-tema), border-color var(--transicao-tema);
+  transition: background-color var(--transicao-tema), color var(--transicao-tema);
 }
 
 /* Links e Utilitários */
