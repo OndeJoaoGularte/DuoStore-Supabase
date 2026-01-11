@@ -1,29 +1,47 @@
-/* --- PALETA DE CORES DA LOJA --- */
 :root {
-  /* Rosas (Identidade Principal) */
-  --cor-primaria: #FF007F;   /* Rosa Choque */
-  --cor-secundaria: #D5237C; /* Rosa Escuro (Hover) */
-  
-  /* Verdes (Ação/Whatsapp) */
-  --cor-destaque: #29CC29;   /* Verde WhatsApp */
-  --cor-sucesso-hover: #3D993D;
-
-  /* Neutros */
-  --cor-fundo: #fff0f5;      /* Um rosa bem clarinho (LavenderBlush) para fundo suave */
-  --cor-texto: #4a4a4a;
+  --cor-primaria: #007FFF;
+  --cor-secundaria: #0055AA;
+  --cor-destaque: #29CC29; /* Verde Whats padrão */
+  --cor-fundo: #F4F9FF;
+  --cor-texto: #2c3e50;
   --cor-texto-claro: #ffffff;
+  --fonte-principal: "Nunito", sans-serif;
   
-  --fonte-principal: "Nunito", sans-serif; /* Certifique-se de importar essa fonte no index.html */
+  /* Transição suave ao trocar de tema */
+  --transicao-tema: 0.4s ease-in-out; 
 }
 
-/* Reset básico e configurações globais */
+/* 2. Tema Feminina (Rosa) */
+body[data-theme="feminina"] {
+  --cor-primaria: #FF007F;
+  --cor-secundaria: #D5237C;
+  --cor-fundo: #FFF0F5;
+  --cor-texto: #592e40; /* Um cinza levemente rosado para texto */
+}
+
+/* 3. Tema Masculina (Militar) */
+body[data-theme="masculina"] {
+  --cor-primaria: #4A6741; /* Verde Militar */
+  --cor-secundaria: #2E4228;
+  --cor-fundo: #EBEBEB; /* Cinza Concreto */
+  --cor-texto: #1a1a1a; /* Preto quase absoluto */
+}
+
+/* --- APLICAÇÃO GERAL --- */
 body {
   font-family: var(--fonte-principal);
   color: var(--cor-texto);
   background-color: var(--cor-fundo);
   overflow-x: hidden;
-  /* Espaço para o header fixo não cobrir o conteúdo */
-  padding-top: 125px; 
+  padding-top: 125px;
+  
+  /* Faz a cor do fundo mudar suavemente */
+  transition: background-color var(--transicao-tema), color var(--transicao-tema);
+}
+
+/* Garante que o Header e Botões mudem de cor suavemente também */
+header, .top-bar, .btn-primary, .footer-bottom {
+  transition: background-color var(--transicao-tema), border-color var(--transicao-tema);
 }
 
 /* Links e Utilitários */

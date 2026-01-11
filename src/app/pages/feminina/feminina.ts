@@ -5,10 +5,11 @@ import { FormsModule } from '@angular/forms';
 import { debounceTime, distinctUntilChanged, Subject, Subscription } from 'rxjs';
 import { ProductCard } from '../../components/product-card/product-card';
 import { Auth } from '../../services/auth/auth';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-feminina',
-  imports: [CommonModule, FormsModule, ProductCard],
+  imports: [CommonModule, FormsModule, ProductCard, RouterLink],
   templateUrl: './feminina.html',
   styleUrl: './feminina.scss',
 })
