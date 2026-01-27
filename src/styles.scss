@@ -1,53 +1,106 @@
+@font-face {
+  font-family: 'Portico Rough';
+  src: url('./assets/fonts/campo minado/Portico\ Stencil\ Rough.otf') format('opentype');
+}
+/* --- DEFINIÇÃO DE TEMAS --- */
+
+/* 1. Tema Padrão (DuoStore) */
 :root {
-  --cor-primaria: #007FFF;
-  --cor-secundaria: #0055AA;
-  --cor-destaque: #29CC29; /* Verde Whats padrão */
-  --cor-fundo: #F4F9FF;
-  --cor-texto: #2c3e50;
+  --cor-primaria: #212529;
+  --cor-secundaria: #495057;
+  --cor-destaque: #29cc29;
+  --cor-fundo: #fafafa;
+  --cor-texto: #1a1a1a;
   --cor-texto-claro: #ffffff;
-  --fonte-principal: "Nunito", sans-serif;
-  
-  /* Transição suave ao trocar de tema */
-  --transicao-tema: 0.4s ease-in-out; 
+  --fonte-principal: 'Nunito', sans-serif;
+  --transicao-tema: 0.4s ease-in-out;
 }
 
-/* 2. Tema Feminina (Rosa) */
-body[data-theme="feminina"] {
-  --cor-primaria: #FF007F;
-  --cor-secundaria: #D5237C;
-  --cor-fundo: #FFF0F5;
-  --cor-texto: #592e40; /* Um cinza levemente rosado para texto */
+/* 2. Tema Feminina (Rosa Pastel Mais Claro) */
+body[data-theme='feminina'] {
+  /* Rosa bem clarinho e suave */
+  --cor-primaria: #ff75ba;
+  /* Um pouco mais escuro para hover */
+  --cor-secundaria: #ff5c9d;
+  --cor-destaque: #30e330;
+  --cor-fundo: #fff0f5;
+  --cor-texto: #5e454b;
 }
 
-/* 3. Tema Masculina (Militar) */
-body[data-theme="masculina"] {
-  --cor-primaria: #4A6741; /* Verde Militar */
-  --cor-secundaria: #2E4228;
-  --cor-fundo: #EBEBEB; /* Cinza Concreto */
-  --cor-texto: #1a1a1a; /* Preto quase absoluto */
+/* 3. Tema Masculina */
+body[data-theme='masculina'] {
+  --cor-primaria: #4a6741;
+  --cor-secundaria: #2e4228;
+  --cor-destaque: #e67e22;
+  --cor-fundo: #ebebeb;
+  --cor-texto: #1a1a1a;
 }
 
-/* --- APLICAÇÃO GERAL --- */
+/* --- ESTILOS GERAIS --- */
 body {
   font-family: var(--fonte-principal);
   color: var(--cor-texto);
   background-color: var(--cor-fundo);
   overflow-x: hidden;
   padding-top: 125px;
-  
-  /* Faz a cor do fundo mudar suavemente */
-  transition: background-color var(--transicao-tema), color var(--transicao-tema);
+  transition:
+    background-color var(--transicao-tema),
+    color var(--transicao-tema);
 }
 
-/* Garante que o Header e Botões mudem de cor suavemente também */
-header, .top-bar, .btn-primary, .footer-bottom {
-  transition: background-color var(--transicao-tema), color var(--transicao-tema);
+header,
+.top-bar,
+.btn-primary,
+.footer-bottom {
+  transition:
+    background-color var(--transicao-tema),
+    border-color var(--transicao-tema);
+}
+
+/* --- CLASSES DE MARCA NO HEADER --- */
+
+/* 1. DuoStore (Padrão) - Itálico e Bold */
+.brand-duostore {
+  font-family: 'Poppins', sans-serif !important;
+  font-weight: 900 !important; /* Extra Bold */
+  font-style: italic !important; /* <--- O Itálico solicitado */
+  font-size: 1.8rem !important;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+/* 2. Feminina - Mais grossa */
+.brand-feminina {
+  font-family: 'Great Vibes', cursive !important;
+  /* Great Vibes só tem peso 400 nativo, então usamos 'bold' 
+       para o navegador criar o efeito mais grosso artificialmente */
+  font-weight: 500 !important;
+  font-size: 3rem !important; /* Aumentei levemente para não ficar serrilhado */
+  letter-spacing: 2px;
+  margin-top: 5px;
+
+  /* DICA PRO: Se ainda achar fino, descomente a linha abaixo. 
+       Ela cria uma "sombra" solida da mesma cor para engrossar mais */
+  text-shadow: 0.5px 0 0 currentColor;
+}
+
+/* 3. Campo Minado - Militar e Stencil */
+.brand-masculina {
+  /* Se você tiver o arquivo da Portico, troque o nome aqui */
+  font-family: 'Portico Rough', cursive !important;
+  font-size: 1.8rem !important;
+  letter-spacing: 2px;
+  text-transform: uppercase;
 }
 
 /* Links e Utilitários */
-a { text-decoration: none; }
+a {
+  text-decoration: none;
+}
 
-.text-primary { color: var(--cor-primaria) !important; }
+.text-primary {
+  color: var(--cor-primaria) !important;
+}
 
 /* --- BOTÕES (Estilo do seu projeto anterior) --- */
 .btn-primary {
