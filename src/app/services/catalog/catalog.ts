@@ -30,7 +30,7 @@ export class Catalog {
   async getProducts(
     category: 'feminina' | 'masculina',
     searchTerm: string = '',
-    orderBy: SortOption = 'new-desc' // Padrão agora é "novidade"
+    orderBy: SortOption = 'new-desc', // Padrão agora é "novidade"
   ): Promise<Product[]> {
     // 1. Inicia a query
     let query = this.supabase.client.from('products').select('*').eq('category', category);
@@ -156,5 +156,18 @@ export class Catalog {
       console.error('Erro geral upload:', error);
       return null;
     }
+  }
+
+  // Buscar produtos relacionados (mesma categoria, exeto o atual)
+  async getRelatedProducts(productId: number, category: string, limit = 4): Promise<Product[]> {
+    const { data, error } = await this.supabase.client
+      .from('products')
+      .select('*')
+      .eq('category', category)
+      .neq('id', productId) // Não mostrar o próprio produto na lista
+      .limit(limit);
+
+    if (error) return [];
+    return data as Product[];
   }
 }

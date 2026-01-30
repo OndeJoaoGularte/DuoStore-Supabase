@@ -7,6 +7,7 @@ import { Admin } from './pages/admin/admin';
 import { QuemSomos } from './pages/quem-somos/quem-somos';
 import { authGuard } from './guards/auth-guard';
 import { ProductForm } from './admin/product-form/product-form';
+import { ProductDetails } from './pages/product-details/product-details';
 
 export const routes: Routes = [
   { path: '', component: Home },
@@ -16,6 +17,8 @@ export const routes: Routes = [
   { path: 'login', component: Login },
   { path: 'admin', component: Admin, canActivate: [authGuard] },
   { path: 'admin/new', component: ProductForm, canActivate: [authGuard] },
-  { path: 'admin/edit/:id', component: ProductForm, canActivate: [authGuard] }, // Vamos proteger isso depois
+  { path: 'admin/edit/:id', component: ProductForm, canActivate: [authGuard] },
+  { path: 'feminina/produto/:id', component: ProductDetails },
+  { path: 'campo-minado/produto/:id', component: ProductDetails },
   { path: '**', redirectTo: '' }, // Qualquer rota errada volta pra home
 ];

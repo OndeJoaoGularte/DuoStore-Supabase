@@ -1,0 +1,25 @@
+/* Botão de Compra customizado para ser a estrela da página */
+.btn-success {
+    background-color: var(--cor-destaque);
+    border-color: var(--cor-destaque);
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+
+    &:hover {
+        transform: translateY(-2px);
+        filter: brightness(0.9);
+        box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    }
+}
+
+.object-fit-cover {
+    object-fit: cover;
+}
+
+/* Ajuste mobile para a imagem não ficar gigante */
+@media (max-width: 768px) {
+    .ratio-1x1 {
+        --bs-aspect-ratio: 100%; /* Mantém quadrado */
+    }
+}

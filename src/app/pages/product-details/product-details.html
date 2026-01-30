@@ -1,0 +1,86 @@
+<div class="container py-5">
+    
+    @if (loading) {
+        <div class="text-center py-5">
+            <div class="spinner-border text-primary" role="status"></div>
+        </div>
+    } 
+    @else if (product) {
+        <div class="mb-4">
+            <button (click)="goBack()" class="btn btn-link text-decoration-none text-muted p-0">
+                <i class="fas fa-arrow-left me-2"></i> Voltar para a loja
+            </button>
+        </div>
+
+        <div class="card shadow-sm border-0 overflow-hidden mb-5">
+            <div class="row g-0">
+                
+                <div class="col-md-6 bg-light d-flex align-items-center justify-content-center">
+                    <div class="ratio ratio-1x1" style="max-height: 500px;">
+                        <img [src]="product.image_url || 'assets/placeholder.png'" 
+                             class="object-fit-cover w-100 h-100" 
+                             alt="{{ product.name }}">
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="card-body p-4 p-lg-5 d-flex flex-column h-100">
+                        <div class="mb-2">
+                            <span class="badge rounded-pill text-uppercase px-3 py-2"
+                                  [class.bg-secondary]="true">
+                                {{ product.type }}
+                            </span>
+                        </div>
+
+                        <h1 class="display-5 fw-bold mb-3" style="color: var(--cor-primaria)">
+                            {{ product.name }}
+                        </h1>
+
+                        <h2 class="text-muted fw-bold mb-4">
+                            {{ product.price }}
+                        </h2>
+
+                        <div class="description mb-5">
+                            <h5 class="fw-bold text-dark">Detalhes</h5>
+                            <p class="text-muted" style="white-space: pre-line;">
+                                {{ product.description || 'Sem descrição detalhada.' }}
+                            </p>
+                        </div>
+
+                        <div class="mt-auto">
+                            <a [href]="getWhatsappLink()" target="_blank" 
+                               class="btn btn-success btn-lg w-100 py-3 fw-bold shadow-sm d-flex align-items-center justify-content-center gap-2">
+                                <i class="fab fa-whatsapp fa-lg"></i>
+                                COMPRAR AGORA
+                            </a>
+                            <p class="text-center text-muted small mt-3 mb-0">
+                                <i class="fas fa-lock me-1"></i> Compra segura via WhatsApp
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        @if (relatedProducts.length > 0) {
+            <div class="mt-5">
+                <h3 class="fw-bold mb-4 text-center" style="color: var(--cor-secundaria)">
+                    Você também pode gostar
+                </h3>
+                <div class="row g-3">
+                    @for (related of relatedProducts; track related.id) {
+                        <div class="col-6 col-md-3">
+                            <app-product-card [product]="related"></app-product-card>
+                        </div>
+                    }
+                </div>
+            </div>
+        }
+    } 
+    @else {
+        <div class="text-center py-5">
+            <h3>Produto não encontrado 😕</h3>
+            <button (click)="goBack()" class="btn btn-primary mt-3">Voltar</button>
+        </div>
+    }
+</div>
