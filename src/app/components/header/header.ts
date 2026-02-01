@@ -60,9 +60,7 @@ export class Header implements OnInit {
     this.isMenuOpen = false;
   }
 
-  // Função adaptada para o WhatsApp
   openWhatsApp(): void {
-    this.isMenuOpen = false;
     const message = encodeURIComponent(
       'Olá! Vim pelo site da DuoStore e gostaria de tirar uma dúvida...',
     );

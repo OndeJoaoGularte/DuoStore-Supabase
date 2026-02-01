@@ -1,7 +1,27 @@
+@font-face {
+    font-family: 'DuoStore Brand';
+    src: url('/src/assets/fonts/duostore/Poppins-BlackItalic.ttf') format('truetype'); 
+    font-weight: 900;
+    font-style: italic;
+}
+
+/* 2. Cria a classe para o Span */
+.brand-footer {
+    font-family: 'DuoStore Brand', 'Poppins', sans-serif; /* Tenta a local, se falhar usa a do Google */
+    font-weight: 900;
+    font-style: italic;
+    font-size: 1.8rem; /* Aumentei um pouco para dar peso */
+    color: var(--cor-destaque);
+    display: block;
+    margin-bottom: 1rem;
+    letter-spacing: 1px; /* Black Italic fica melhor com um leve espaçamento */
+    line-height: 1;
+}
+
 footer {
-  background-color: #fff;
-  color: var(--cor-texto);
-  border-top: 1px solid var(--cor-primaria);
+  background-color: var(--cor-secundaria);
+  color: var(--cor-destaque);
+  border-top: 1px solid var(--cor-terciaria);
 }
 
 /* Footer Principal */
@@ -15,7 +35,7 @@ footer {
 
 .widget-title {
   font-weight: 700;
-  color: var(--cor-primaria); /* Rosa */
+  color: var(--cor-destaque); /* Rosa */
   font-size: 1rem;
   text-transform: uppercase;
   letter-spacing: 0.5px;
@@ -23,15 +43,15 @@ footer {
 
 .footer-links {
   a {
-    color: var(--cor-texto);
+    color: var(--cor-destaque);
     text-decoration: none;
-    opacity: 0.7;
+    opacity: 0.9;
     transition: all 0.3s ease;
     cursor: pointer;
 
     &:hover {
       opacity: 1;
-      color: var(--cor-secundaria); /* Rosa Escuro */
+      color: var(--cor-terciaria); /* Rosa Escuro */
       padding-left: 5px;
     }
   }
@@ -39,32 +59,32 @@ footer {
 
 .footer-contact {
   font-size: 0.9rem;
-  color: var(--cor-texto);
+  color: var(--cor-destaque);
 
   span, a {
-    opacity: 0.7;
+    opacity: 0.9;
     transition: all 0.3s ease;
 
     &:hover {
       opacity: 1;
-      color: var(--cor-secundaria);
+      color: var(--cor-terciaria);
     }
   }
 
   i {
-    color: var(--cor-primaria);
+    color: var(--cor-destaque);
     width: 20px;
   }
 }
 
 .social-icons a {
-  color: var(--cor-primaria);
-  opacity: 0.7;
+  color: var(--cor-destaque);
+  opacity: 0.9;
   font-size: 1.75rem;
   transition: all 0.3s ease;
 
   &:hover {
-    color: var(--cor-secundaria);
+    color: var(--cor-terciaria);
     transform: translateY(-3px);
     opacity: 1;
   }
@@ -72,18 +92,17 @@ footer {
 
 /* Footer Inferior */
 .footer-bottom {
-  background-color: var(--cor-primaria); /* Rosa Fundo */
+  background-color: var(--cor-primaria);
 
   p,
   a {
     font-size: 0.9rem;
-    color: #fff; /* Texto Branco */
-    text-decoration: none;
+    color: var(--cor-secundaria);
     transition: all 0.3s ease;
   }
 
   a:hover {
-    color: var(--cor-destaque); /* Verde no Hover (link desenvolvedor) */
+    color: var(--cor-terciaria);
   }
 }
 

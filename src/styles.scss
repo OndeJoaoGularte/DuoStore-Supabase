@@ -2,16 +2,12 @@
 
 /* 1. Tema Padrão (DuoStore - Monocromático Preto/Branco) */
 :root {
-  --cor-primaria: #000000; /* Preto Total solicitado */
-  --cor-secundaria: #333333; /* Cinza Chumbo para hover */
-  --cor-destaque: #29cc29; /* Verde Whats */
-
-  --cor-fundo: #fafafa; /* Fundo do site (conteúdo) */
-  --cor-texto: #1a1a1a; /* Texto do site */
-
-  /* Variáveis Exclusivas do Header */
-  --cor-header-bg: #000000; /* Fundo do Header PRETO */
-  --cor-header-text: #ffffff; /* Texto do Menu BRANCO */
+  --cor-primaria: #000;
+  --cor-secundaria: #fff;
+  --cor-terciaria: #30e330;
+  --cor-destaque: #000;
+  --cor-whatsapp: #30e330;
+  --cor-fundo: #fafafa;
 
   --fonte-principal: 'Nunito', sans-serif;
   --transicao-tema: 0.4s ease-in-out;
@@ -19,30 +15,21 @@
 
 /* 2. Tema Feminina (Chique / Rose Envelhecido) */
 body[data-theme='feminina'] {
-  --cor-primaria: #f0b1c4; /* O tom Rose solicitado */
-  --cor-secundaria: #d896a9; /* Um tom levemente mais escuro para hover */
-  --cor-destaque: #30e330; /* Verde Vibrante */
-
-  --cor-fundo: #fdf5f7; /* Fundo do site (bege/rosado bem claro) */
-  --cor-texto: #5e454b; /* Texto do conteúdo */
-
-  /* Header Feminina */
-  --cor-header-bg: #f0b1c4; /* Fundo Rose */
-  --cor-header-text: #ffffff; /* Texto do Menu BRANCO (combina com o logo branco) */
+  --cor-primaria: #f0b1c4;
+  --cor-secundaria: #fff;
+  --cor-terciaria: #cb608c;
+  --cor-destaque: #a36b17;
+  --cor-fundo: #fdf5f7;
 }
 
 /* 3. Tema Masculina (Campo Minado) */
 body[data-theme='masculina'] {
   --cor-primaria: #4a6741;
-  --cor-secundaria: #2e4228;
-  --cor-destaque: #e67e22;
+  --cor-secundaria: #000;
+  --cor-terciaria: #e67e22;
+  --cor-destaque: #fff;
 
   --cor-fundo: #ebebeb;
-  --cor-texto: #1a1a1a;
-
-  /* Header Masculina (Mantém fundo branco) */
-  --cor-header-bg: #ffffff;
-  --cor-header-text: #1a1a1a; /* Texto Preto para contrastar com fundo branco */
 }
 
 /* Transição global para o header */

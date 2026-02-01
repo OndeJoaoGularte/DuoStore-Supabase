@@ -12,7 +12,11 @@
                 </span>
             </div>
 
-            <div class="social-icons d-flex gap-4">
+            <div class="social-icons d-flex gap-4 align-items-center">
+                <a (click)="openWhatsApp()" aria-label="WhatsApp" style="cursor: pointer;">
+                    <i class="fab fa-whatsapp"></i>
+                </a>
+
                 <a href="https://www.instagram.com/femininars/" target="_blank" aria-label="Instagram">
                     <i class="fab fa-instagram"></i>
                 </a>
@@ -28,14 +32,20 @@
 
             <a class="nav-logo d-flex align-items-center" routerLink="/" (click)="isMenuOpen = false">
                 <img [src]="logoPath" alt="Logo da Loja" class="logo-img" [ngClass]="{
-        'logo-duostore': currentTheme === 'default',
-        'logo-feminina': currentTheme === 'feminina',
-        'logo-masculina': currentTheme === 'masculina'
-     }">
+                    'logo-duostore': currentTheme === 'default',
+                    'logo-feminina': currentTheme === 'feminina',
+                    'logo-masculina': currentTheme === 'masculina'
+                 }">
             </a>
 
             <div class="nav-main-group gap-4" [class.active]="isMenuOpen">
                 <ul class="nav-links d-flex m-0 p-0 gap-4 align-items-center">
+                    <li>
+                        <a class="nav-link" routerLink="/home" routerLinkActive="active-link"
+                            (click)="isMenuOpen = false">
+                            Home
+                        </a>
+                    </li>
                     <li>
                         <a class="nav-link" routerLink="/feminina" routerLinkActive="active-link"
                             (click)="isMenuOpen = false">
@@ -65,10 +75,6 @@
                 </ul>
 
                 <div class="nav-actions">
-                    <a class="nav-cta py-2 px-4 rounded-pill text-decoration-none" (click)="openWhatsApp()">
-                        <i class="fab fa-whatsapp me-1"></i> Contato
-                    </a>
-
                     @if (authService.isLoggedIn()) {
                     <button (click)="onSignOut()" class="btn btn-outline-danger py-2 px-4 rounded-pill">
                         Sair

@@ -10,7 +10,8 @@ import { ProductForm } from './admin/product-form/product-form';
 import { ProductDetails } from './pages/product-details/product-details';
 
 export const routes: Routes = [
-  { path: '', component: Home },
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
+  { path: 'home', component: Home },
   { path: 'feminina', component: Feminina }, // Loja Principal
   { path: 'campo-minado', component: Masculina },
   { path: 'quem-somos', component: QuemSomos },

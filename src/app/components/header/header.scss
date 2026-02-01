@@ -18,26 +18,26 @@
 
 /* 2. FEMININA */
 .logo-feminina {
-  height: 100px; /* Ex: Se o logo for mais alto/fino, aumente aqui */
+  height: 115px; /* Ex: Se o logo for mais alto/fino, aumente aqui */
 }
 
 /* 3. CAMPO MINADO */
 .logo-masculina {
-  height: 40px; /* Ex: Tamanho intermediário */
+  height: 50px; /* Ex: Tamanho intermediário */
 }
 
 header {
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-  background-color: var(--cor-header-bg); /* MUDANÇA AQUI: Usa a variável dinâmica */
+  background-color: var(--cor-primaria); /* MUDANÇA AQUI: Usa a variável dinâmica */
   transition: background-color 0.4s ease-in-out;
 }
 
 /* Barra Superior */
 .top-bar {
   height: 40px;
-  background-color: var(--cor-secundaria); /* Mantém cor primária (Preto, Rose ou Verde) */
-  color: #fff; /* Texto da top bar sempre branco (exceto se precisar mudar) */
+  background-color: var(--cor-secundaria);
+  color: var(--cor-destaque);
   display: flex;
   align-items: center;
   font-size: 0.9rem;
@@ -52,14 +52,14 @@ header {
     color: var(--cor-destaque);
   }
   .social-icons a {
-    color: #fff;
+    color: var(--cor-destaque);
 
     font-size: 1.1rem;
     transition:
       color 0.3s ease,
       transform 0.2s ease;
     &:hover {
-      color: var(--cor-destaque);
+      color: var(--cor-terciaria);
       transform: scale(1.1);
     }
   }
@@ -92,7 +92,7 @@ nav {
 }
 
 .nav-link {
-  color: var(--cor-header-text); /* MUDANÇA: Cor do texto dinâmica (Branco ou Preto) */
+  color: var(--cor-secundaria); /* MUDANÇA: Cor do texto dinâmica (Branco ou Preto) */
   font-weight: 700;
   position: relative;
   transition: color 0.3s ease;
@@ -107,13 +107,13 @@ nav {
     width: 0;
     height: 2px;
     /* Se o fundo for escuro/colorido, a linha é branca. Se for branco, a linha é a cor primária */
-    background-color: var(--cor-destaque);
+    background-color: var(--cor-terciaria);
     transition: width 0.3s ease;
   }
 
   &:hover,
   &.active-link {
-    color: var(--cor-destaque);
+    color: var(--cor-terciaria);
   }
 
   &:hover::after,
@@ -126,21 +126,6 @@ nav {
   display: flex;
   align-items: center;
   gap: 1rem;
-}
-
-/* Botão de Contato (Antigo Vakinha) */
-.nav-cta {
-  background-color: var(--cor-destaque); /* Verde */
-  color: #fff; /* Texto Branco para contraste no verde */
-  font-weight: 700;
-  transition: all 0.3s ease;
-  cursor: pointer;
-
-  &:hover {
-    background-color: #1d971d;
-    transform: translateY(-2px);
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  }
 }
 
 .btn-outline-danger {
@@ -160,8 +145,7 @@ nav {
   cursor: pointer;
 
   span {
-    /* A cor do hamburguer acompanha o texto (Branco ou Preto) */
-    background-color: var(--cor-header-text);
+    background-color: var(--cor-secundaria);
   }
 }
 
@@ -175,6 +159,10 @@ nav {
 @media (max-width: 991px) {
   .top-bar {
     display: none;
+  }
+
+  .logo-feminina {
+    height: 100px; /* Ex: Se o logo for mais alto/fino, aumente aqui */
   }
 
   .logo-masculina {
@@ -192,7 +180,7 @@ nav {
     left: 0;
     width: 100%;
     height: calc(100vh - 80px);
-    background-color: var(--cor-header-bg);
+    background-color: var(--cor-primaria);
     flex-direction: column;
     align-items: center;
     justify-content: center;
@@ -228,13 +216,13 @@ nav {
       display: block;
       width: 25px;
       height: 3px;
-      background-color: var(--cor-texto);
+      background-color: var(--cor-secundaria);
       border-radius: 3px;
       transition: all 0.3s ease-in-out;
     }
 
     &.active span {
-      background-color: var(--cor-texto);
+      background-color: var(--cor-secundaria);
     }
 
     &.active span:nth-child(1) {
