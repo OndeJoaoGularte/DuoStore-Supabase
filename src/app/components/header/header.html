@@ -26,19 +26,12 @@
     <nav>
         <div class="nav-container d-flex justify-content-between align-items-center mx-auto px-4 px-md-5">
 
-            <a class="nav-logo d-flex align-items-center text-decoration-none" routerLink="/"
-                (click)="isMenuOpen = false">
-
-                <span [ngClass]="{
-            'brand-duostore': currentTheme === 'default',
-            'brand-feminina': currentTheme === 'feminina',
-            'brand-masculina': currentTheme === 'masculina'
-        }" style="color: var(--cor-primaria); transition: all 0.4s ease;">
-
-                    {{ logoText }}
-
-                </span>
-
+            <a class="nav-logo d-flex align-items-center" routerLink="/" (click)="isMenuOpen = false">
+                <img [src]="logoPath" alt="Logo da Loja" class="logo-img" [ngClass]="{
+        'logo-duostore': currentTheme === 'default',
+        'logo-feminina': currentTheme === 'feminina',
+        'logo-masculina': currentTheme === 'masculina'
+     }">
             </a>
 
             <div class="nav-main-group gap-4" [class.active]="isMenuOpen">

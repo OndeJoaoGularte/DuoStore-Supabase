@@ -1,39 +1,59 @@
-@font-face {
-  font-family: 'Portico Rough';
-  src: url('./assets/fonts/campo minado/Portico\ Stencil\ Rough.otf') format('opentype');
-}
 /* --- DEFINIÇÃO DE TEMAS --- */
 
-/* 1. Tema Padrão (DuoStore) */
+/* 1. Tema Padrão (DuoStore - Monocromático Preto/Branco) */
 :root {
-  --cor-primaria: #212529;
-  --cor-secundaria: #495057;
-  --cor-destaque: #29cc29;
-  --cor-fundo: #fafafa;
-  --cor-texto: #1a1a1a;
-  --cor-texto-claro: #ffffff;
+  --cor-primaria: #000000; /* Preto Total solicitado */
+  --cor-secundaria: #333333; /* Cinza Chumbo para hover */
+  --cor-destaque: #29cc29; /* Verde Whats */
+
+  --cor-fundo: #fafafa; /* Fundo do site (conteúdo) */
+  --cor-texto: #1a1a1a; /* Texto do site */
+
+  /* Variáveis Exclusivas do Header */
+  --cor-header-bg: #000000; /* Fundo do Header PRETO */
+  --cor-header-text: #ffffff; /* Texto do Menu BRANCO */
+
   --fonte-principal: 'Nunito', sans-serif;
   --transicao-tema: 0.4s ease-in-out;
 }
 
-/* 2. Tema Feminina (Rosa Pastel Mais Claro) */
+/* 2. Tema Feminina (Chique / Rose Envelhecido) */
 body[data-theme='feminina'] {
-  /* Rosa bem clarinho e suave */
-  --cor-primaria: #ff75ba;
-  /* Um pouco mais escuro para hover */
-  --cor-secundaria: #ff5c9d;
-  --cor-destaque: #30e330;
-  --cor-fundo: #fff0f5;
-  --cor-texto: #5e454b;
+  --cor-primaria: #f0b1c4; /* O tom Rose solicitado */
+  --cor-secundaria: #d896a9; /* Um tom levemente mais escuro para hover */
+  --cor-destaque: #30e330; /* Verde Vibrante */
+
+  --cor-fundo: #fdf5f7; /* Fundo do site (bege/rosado bem claro) */
+  --cor-texto: #5e454b; /* Texto do conteúdo */
+
+  /* Header Feminina */
+  --cor-header-bg: #f0b1c4; /* Fundo Rose */
+  --cor-header-text: #ffffff; /* Texto do Menu BRANCO (combina com o logo branco) */
 }
 
-/* 3. Tema Masculina */
+/* 3. Tema Masculina (Campo Minado) */
 body[data-theme='masculina'] {
   --cor-primaria: #4a6741;
   --cor-secundaria: #2e4228;
   --cor-destaque: #e67e22;
+
   --cor-fundo: #ebebeb;
   --cor-texto: #1a1a1a;
+
+  /* Header Masculina (Mantém fundo branco) */
+  --cor-header-bg: #ffffff;
+  --cor-header-text: #1a1a1a; /* Texto Preto para contrastar com fundo branco */
+}
+
+/* Transição global para o header */
+header,
+nav,
+.top-bar,
+.btn-primary,
+.footer-bottom {
+  transition:
+    background-color var(--transicao-tema),
+    color var(--transicao-tema);
 }
 
 /* --- ESTILOS GERAIS --- */
@@ -46,15 +66,6 @@ body {
   transition:
     background-color var(--transicao-tema),
     color var(--transicao-tema);
-}
-
-header,
-.top-bar,
-.btn-primary,
-.footer-bottom {
-  transition:
-    background-color var(--transicao-tema),
-    border-color var(--transicao-tema);
 }
 
 /* --- CLASSES DE MARCA NO HEADER --- */

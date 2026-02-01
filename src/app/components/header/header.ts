@@ -11,12 +11,12 @@ import { filter } from 'rxjs';
   styleUrl: './header.scss',
 })
 export class Header implements OnInit {
-  isMenuOpen = false; // Menu mobile
-  isScrolled = false; // Barra superior
+  isMenuOpen = false;
+  isScrolled = false;
 
-  // Variáveis para controlar o Texto e o Estilo do Logo
-  logoText: string = 'DuoStore';
-  currentTheme: string = 'default'; // 'default', 'feminina', 'masculina'
+  // AGORA USAMOS CAMINHO DA IMAGEM
+  logoPath: string = 'assets/logos/duostore.png';
+  currentTheme: string = 'default';
 
   whatsappNumber = '5551999934571';
 
@@ -36,14 +36,13 @@ export class Header implements OnInit {
 
   updateHeaderIdentity(url: string) {
     if (url.includes('/feminina')) {
-      this.logoText = 'Feminina';
+      this.logoPath = 'logos/feminina.png';
       this.currentTheme = 'feminina';
     } else if (url.includes('/campo-minado')) {
-      this.logoText = 'Campo Minado';
+      this.logoPath = 'logos/campominado.png';
       this.currentTheme = 'masculina';
     } else {
-      // Se estiver na Home, Admin ou Login
-      this.logoText = 'DuoStore';
+      this.logoPath = 'logos/duostore.png';
       this.currentTheme = 'default';
     }
   }
