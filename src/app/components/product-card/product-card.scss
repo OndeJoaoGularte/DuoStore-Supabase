@@ -1,27 +1,67 @@
-.product-card {
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-  cursor: pointer;
-  
-  &:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 .5rem 1rem rgba(0,0,0,.15)!important;
-  }
+.component-cards {
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    cursor: pointer;
+    background-color: #fff;
+    border-radius: 8px; /* Arredondamento suave */
+    
+    /* 1. Configuração inicial dos filhos para animar depois */
+    .card-img-top {
+        transition: transform 0.5s ease; /* Zoom mais lento e suave */
+        width: 100%;
+    }
+
+    .card-title {
+        color: var(--cor-texto);
+        transition: color 0.3s ease;
+    }
+
+    /* 2. O Efeito HOVER (Passar o mouse) */
+    &:hover {
+        /* O Card sobe e ganha sombra forte */
+        transform: translateY(-5px);
+        box-shadow: 0 1rem 3rem rgba(0,0,0,0.15) !important;
+
+        /* A imagem dá um zoom suave */
+        .card-img-top {
+            transform: scale(1.1);
+        }
+
+        /* O título muda para a cor secundária (hover) do tema */
+        .card-title {
+            color: var(--cor-terciaria); 
+        }
+    }
 }
 
 .object-fit-cover {
-  object-fit: cover;
+    object-fit: cover;
 }
 
-.text-primary {
-    color: var(--cor-primaria) !important;
+/* Preço com a cor principal do tema */
+h6 {
+    color: var(--cor-terciaria);
+    font-size: 1.1rem;
 }
 
+/* Botão de Compra Dinâmico */
 .btn-success {
-    background-color: var(--cor-destaque); /* Verde */
+    /* Usa a cor de destaque do tema atual (Verde, Teal ou Laranja) */
+    background-color: var(--cor-whatsapp); 
     border: none;
     font-weight: 700;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    letter-spacing: 0.5px;
+    transition: all 0.2s ease;
+    color: #fff; /* Garante texto branco */
     
     &:hover {
-        background-color: #22a922;
+        /* Escurece levemente o botão no hover (filtro de brilho) */
+        filter: brightness(0.9); 
+        transform: translateY(-2px); /* Pequeno pulo do botão */
+    }
+
+    &:active {
+        transform: translateY(0);
     }
 }

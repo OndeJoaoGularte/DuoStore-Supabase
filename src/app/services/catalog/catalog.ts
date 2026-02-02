@@ -30,17 +30,28 @@ export class Catalog {
   async getProducts(
     category: 'feminina' | 'masculina',
     searchTerm: string = '',
-    orderBy: SortOption = 'new-desc', // Padrão agora é "novidade"
+    orderBy: SortOption = 'new-desc',
+    typeFilter: string = '' // <--- NOVO PARÂMETRO (Padrão vazio)
   ): Promise<Product[]> {
-    // 1. Inicia a query
-    let query = this.supabase.client.from('products').select('*').eq('category', category);
+    
+    // 1. Inicia a query filtrando pela categoria (Feminina ou Masculina)
+    let query = this.supabase.client
+      .from('products')
+      .select('*')
+      .eq('category', category);
 
-    // 2. Filtro de busca (se houver texto)
+    // 2. Filtro de busca (texto)
     if (searchTerm) {
       query = query.or(`name.ilike.%${searchTerm}%,type.ilike.%${searchTerm}%`);
     }
 
-    // 3. Ordenação (Lógica Refatorada)
+    // 3. NOVO: Filtro por Tipo (Colar, Brinco, etc)
+    // Só aplica se o filtro não estiver vazio
+    if (typeFilter) {
+      query = query.eq('type', typeFilter);
+    }
+
+    // 4. Ordenação
     let column = 'created_at';
     let ascending = false;
 
@@ -73,7 +84,7 @@ export class Catalog {
 
     query = query.order(column, { ascending });
 
-    // 4. Executa
+    // 5. Executa
     const { data, error } = await query;
 
     if (error) {

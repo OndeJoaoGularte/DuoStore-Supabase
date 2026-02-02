@@ -20,6 +20,7 @@ export class Feminina implements OnInit, OnDestroy {
   // Filtros
   searchTerm: string = '';
   currentSort: SortOption = 'new-desc';
+  currentType: string = '';
 
   // Controle de Busca Ao Vivo (RxJS)
   private searchSubject = new Subject<string>();
@@ -57,7 +58,8 @@ export class Feminina implements OnInit, OnDestroy {
     this.products = await this.catalogService.getProducts(
       'feminina', 
       this.searchTerm, 
-      this.currentSort
+      this.currentSort,
+      this.currentType
     );
     this.loading = false;
   }
