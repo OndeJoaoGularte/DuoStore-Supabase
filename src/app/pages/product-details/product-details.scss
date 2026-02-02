@@ -1,25 +1,77 @@
-/* Botão de Compra customizado para ser a estrela da página */
-.btn-success {
-    background-color: var(--cor-destaque);
-    border-color: var(--cor-destaque);
-    transition: all 0.3s ease;
-    text-transform: uppercase;
-    letter-spacing: 1px;
+/* Fonte do Título usa a Poppins (que já adicionamos) */
+.product-title {
+    color: var(--cor-destaque);
+    font-family: 'Poppins', sans-serif;
+    letter-spacing: -0.5px;
+}
 
+.price-tag {
+    color: var(--cor-terciaria);
+    font-weight: 800;
+    font-size: 2.5rem;
+    font-family: 'Nunito', sans-serif;
+}
+
+/* Container da Imagem */
+.product-image-container {
+    transition: transform 0.3s ease;
+    border: 1px solid rgba(0,0,0,0.03); /* Borda ultra sutil */
+    
+    /* No desktop, se passar o mouse, dá um leve zoom na caixa */
     &:hover {
-        transform: translateY(-2px);
-        filter: brightness(0.9);
-        box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        transform: translateY(-5px);
     }
 }
 
-.object-fit-cover {
-    object-fit: cover;
+/* EFEITO STICKY: A mágica acontece aqui */
+@media (min-width: 992px) {
+    .product-details-sticky {
+        position: sticky;
+        top: 140px; /* Ajuste conforme a altura do seu Header */
+    }
 }
 
-/* Ajuste mobile para a imagem não ficar gigante */
-@media (max-width: 768px) {
-    .ratio-1x1 {
-        --bs-aspect-ratio: 100%; /* Mantém quadrado */
+/* Botão de Compra */
+.btn-success {
+    background-color: var(--cor-whatsapp);
+    border: none;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+
+    &:hover {
+        background-color: var(--cor-whatsapp); /* Mantém cor base */
+        filter: brightness(0.9); /* Escurece um pouco */
+        transform: translateY(-2px);
+        box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+    }
+}
+
+/* Animação sutil de pulso no botão para chamar atenção */
+@keyframes pulse-subtle {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.02); }
+    100% { transform: scale(1); }
+}
+
+.pulse-button {
+    animation: pulse-subtle 2s infinite;
+    &:hover {
+        animation: none; /* Para não tremer quando passar o mouse */
+    }
+}
+
+.section-title {
+    color: var(--cor-destaque);
+    text-transform: uppercase;
+    font-size: 1.2rem;
+    letter-spacing: 2px;
+}
+
+.breadcrumb-item a {
+    transition: color 0.2s;
+    &:hover {
+        color: var(--cor-terciaria) !important;
     }
 }

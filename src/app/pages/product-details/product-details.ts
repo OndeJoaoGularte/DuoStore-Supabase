@@ -52,7 +52,7 @@ export class ProductDetails implements OnInit {
 
   getWhatsappLink(): string {
     if (!this.product) return '';
-    const message = `Olá! Vi o produto *${this.product.name}* no site e gostaria de comprar.`;
+    const message = `Olá! Gostei do *${this.product.name}*, produto que vi na DuoStore por R$ ${this.product.price}. Gostaria de saber como poderíamos prosseguir com a venda!`;
     return `https://wa.me/${this.whatsappNumber}?text=${encodeURIComponent(message)}`;
   }
 
